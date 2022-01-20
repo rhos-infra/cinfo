@@ -11,23 +11,17 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from __future__ import annotations
-from abc import ABC
-from abc import abstractmethod
+from typing import Union
+
+from cinfo.system.zuul import ZuulSystem
+from cinfo.system.jenkins import JenkinsSystem
 
 
-class Build(ABC):
+class System(object):
 
-    @abstractmethod
-    def get_result(self):
-        pass
-
-
-class JenkinsJobBuild(Build):
-
-    def __init__(self, number: int):
-
-        self.number = number
-
-    def get_result(self) -> str:
-        pass
+    @staticmethod
+    def get_system(system_name) -> Union[JenkinsSystem, ZuulSystem]:
+        if system_name.lower() == "zuul":
+            return ZuulSystem()
+        if system_name.lower() == "jenkins":
+            return JenkinsSystem

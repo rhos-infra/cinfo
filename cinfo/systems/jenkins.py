@@ -11,13 +11,12 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from cinfo.entities.ci.job import JobList
-from cinfo.entities.ci.environment import Environment
+from cinfo.entities.ci.job import JenkinsJob
+from cinfo.entities.ci.system import System
 
 
-class Jenkins(object):
+class Jenkins(System):
 
-    def __init__(self):
+    def __init__(self, jobs=[]):
 
-        self.environment = Environment()
-        self.environment.jobs = JobList()
+        self.jobs = list[JenkinsJob]

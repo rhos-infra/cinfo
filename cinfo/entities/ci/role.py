@@ -14,7 +14,7 @@
 
 class Role(object):
 
-    def __init__(self, name, plabooks=[]):
+    def __init__(self, name, playbooks=[]):
 
         self.name = name
         self.playbook = playbooks

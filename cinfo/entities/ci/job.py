@@ -11,26 +11,21 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from __future__ import annotations
+from abc import ABC
+from abc import abstractmethod
 
-class Job(object):
+from cinfo.entities.ci.build import JenkinsJobBuild
 
-    def __init__(self, builds = [], configuration=None):
 
+class Job(ABC):
+
+    @abstractmethod
+    def get_builds(self):
+        pass
+
+
+class JenkinsJob(Job):
+
+    def __init__(self, builds: list[JenkinsJobBuild] = []):
         self.builds = builds
-        self.configuration = configuration
-
-
-class JobList(list):
-
-    def __init__(self, iterable=None):
-        super(JobList, self).__init__()
-        if iterable:
-            for item in iterable:
-                self.append(item)
-
-    def append(self, item):
-
-        if isinstance(item, Job):
-            super(JobList, self).append(item)
-        else:
-            raise ValueError('Jobs allowed only')

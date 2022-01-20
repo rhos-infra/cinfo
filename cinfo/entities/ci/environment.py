@@ -11,10 +11,12 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+from cinfo.system import System
+
 
 class Environment(object):
 
-    def __init__(self, pipelines=[], jobs=[]):
+    def __init__(self, system, url: str):
 
-        self.pipelines = pipelines
-        self.jobs = jobs
+        self.system = System.get_system(system)
+        self.url = url
