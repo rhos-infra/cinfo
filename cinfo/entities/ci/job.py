@@ -18,14 +18,8 @@ from abc import abstractmethod
 from cinfo.entities.ci.build import JenkinsJobBuild
 
 
-class Job(ABC):
-
-    @abstractmethod
-    def get_builds(self):
-        pass
-
-
-class JenkinsJob(Job):
+class Job(Job):
 
     def __init__(self, builds: list[JenkinsJobBuild] = []):
         self.builds = builds
+        self.objects # oonjects Map 

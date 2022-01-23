@@ -1,0 +1,2 @@
+class ParserInterface()
+     def get

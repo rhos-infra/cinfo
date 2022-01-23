@@ -17,3 +17,4 @@ class Pipeline(object):
     def __init__(self, jobs=[]):
 
         self.jobs = jobs
+        self.

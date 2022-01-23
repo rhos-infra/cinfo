@@ -1,0 +1,29 @@
+environments:
+  - phase_1:
+    - osp_jenkins:
+      jobs: 'phase1-*'
+      type: jenkins
+      url: http://some_jenkins.com
+      job_definitions:
+        - 'repo1':
+          url: http://some_job_definitions_repo
+  - phase_2:
+    - osp_jenkins:
+      type: jenkins
+      url: http://some_jenkins.com
+      job_definitions:
+        - 'repo1':
+          url: http://some_job_definitions_repo
+  - osp_component_pipline:
+    - component_pipline_jenkins:
+      type: jenkins
+      url: http://some_jenkins.com
+      job_definitions:
+        - 'repo1':
+          url: http://some_job_definitions_repo
+    - component_pipline_zuul:
+      type: zuul
+      url: http://some_zuul.com
+      job_definitions:
+        - 'repo1':
+          url: http://some_job_definitions_repo
