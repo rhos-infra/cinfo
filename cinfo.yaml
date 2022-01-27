@@ -4,9 +4,24 @@ environments:
       jobs: 'phase1-*'
       type: jenkins
       url: http://some_jenkins.com
-      job_definitions:
-        - 'repo1':
-          url: http://some_job_definitions_repo
+      # attributes:  Phase 2 Priority
+      #   job_name:
+      #      sources:
+      #        - osp_elk  
+      #        - osp_jenkins
+      sources:
+        job_definitions:
+          priority: 0
+          driver: jjb
+          - 'repo1':
+            url: http://some_job_definitions_repo  
+        osp_elk:
+          priroty: 2
+          driver: elk
+          driver_repository: https://codeng...
+        osp_jenkins:
+          driver: jenkins
+          url: http://some_jenkins.com
   - phase_2:
     - osp_jenkins:
       type: jenkins
